@@ -1,0 +1,156 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Current Lab",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "LAB=${input:lab}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Run Current Lab",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "run",
+                "LAB=${input:lab}"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Clean Current Lab",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean",
+                "LAB=${input:lab}"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Test Current Lab",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "test",
+                "LAB=${input:lab}"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Clean All Builds",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean-all"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Launch Zsh Terminal",
+            "type": "shell",
+            "command": "zsh",
+            "group": "other",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            "label": "Launch Btop System Monitor",
+            "type": "shell",
+            "command": "btop",
+            "group": "other",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": false
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "lab",
+            "description": "Lab name (e.g., lab515, lab517)",
+            "default": "lab515",
+            "type": "promptString"
+        }
+    ]
+}
