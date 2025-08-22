@@ -1,0 +1,43 @@
+{
+  "name": "zyBooks C++ Labs",
+  "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.makefile-tools",
+        "GitHub.copilot",
+        "eamodio.gitlens",
+        "ms-vscode.hexeditor"
+      ],
+      "settings": {
+        "C_Cpp.default.compilerPath": "/usr/bin/g++",
+        "C_Cpp.default.cStandard": "c17",
+        "C_Cpp.default.cppStandard": "c++17",
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+        "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "files.associations": {
+          "*.hpp": "cpp",
+          "*.h": "cpp",
+          "*.cpp": "cpp",
+          "*.cc": "cpp",
+          "Makefile": "makefile"
+        },
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "telemetry.telemetryLevel": "off"
+      }
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y clang-format gdb",
+  "remoteUser": "vscode",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace"
+}

@@ -1,0 +1,2 @@
+# Lab 526 Expected Output Template
+# Add your expected output here based on lab requirements
