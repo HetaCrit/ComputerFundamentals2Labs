@@ -118,7 +118,7 @@
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "new",
                 "showReuseMessage": false,
                 "clear": false
@@ -135,7 +135,7 @@
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": true,
+                "focus": false,
                 "panel": "new",
                 "showReuseMessage": false,
                 "clear": false
@@ -143,6 +143,15 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             }
+        },
+        {
+            "label": "Launch Zsh + Btop Side by Side",
+            "dependsOrder": "parallel",
+            "dependsOn": [
+                "Launch Zsh Terminal",
+                "Launch Btop System Monitor"
+            ],
+            "group": "other"
         }
     ],
     "inputs": [

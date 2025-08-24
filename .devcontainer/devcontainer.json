@@ -24,6 +24,33 @@
         "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "[cpp]": {
+          "editor.defaultFormatter": "ms-vscode.cpptools",
+          "editor.formatOnSave": true
+        },
+        "[c]": {
+          "editor.defaultFormatter": "ms-vscode.cpptools",
+          "editor.formatOnSave": true
+        },
+        "[json]": {
+          "editor.defaultFormatter": "vscode.json-language-features",
+          "editor.formatOnSave": true
+        },
+        "[yaml]": {
+          "editor.defaultFormatter": "vscode.yaml-language-features",
+          "editor.formatOnSave": true
+        },
+        "[makefile]": {
+          "editor.defaultFormatter": "ms-vscode.makefile-tools",
+          "editor.formatOnSave": true
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "vscode.markdown-language-features",
+          "editor.formatOnSave": true
+        },
+        "C_Cpp.formatting": "clangFormat",
+        "C_Cpp.clang_format_style": "file",
         "files.associations": {
           "*.hpp": "cpp",
           "*.h": "cpp",
