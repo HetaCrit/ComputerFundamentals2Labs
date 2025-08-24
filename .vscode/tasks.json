@@ -111,42 +111,54 @@
             }
         },
         {
-            "label": "Launch Zsh Terminal",
-            "type": "shell",
-            "command": "zsh",
-            "group": "other",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "new",
-                "showReuseMessage": false,
-                "clear": false
-            },
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
-            "label": "Launch Btop System Monitor",
-            "type": "shell",
-            "command": "btop",
-            "group": "other",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "new",
-                "showReuseMessage": false,
-                "clear": false
-            },
-            "options": {
-                "cwd": "${workspaceFolder}"
-            }
-        },
-        {
             "label": "Launch Zsh + Btop Side by Side",
-            "dependsOrder": "parallel",
+            "dependsOn": [
+                "zsh: terminal",
+                "btop: monitor"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "zsh: terminal",
+            "type": "shell",
+            "icon": {
+                "color": "terminal.ansiWhite",
+                "id": "terminal-linux"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "zsh",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "group": "side-by-side"
+            }
+        },
+        {
+            "label": "btop: monitor",
+            "type": "shell",
+            "icon": {
+                "color": "terminal.ansiCyan",
+                "id": "rocket"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "btop",
+            "runOptions": {
+                "runOn": "default"
+            },
+            "presentation": {
+                "panel": "dedicated",
+                "group": "side-by-side"
+            }
+        },
+        {
+            "label": "Launch Zsh then Btop Sequentially",
+            "dependsOrder": "sequence",
             "dependsOn": [
                 "Launch Zsh Terminal",
                 "Launch Btop System Monitor"
