@@ -68,14 +68,21 @@ This devcontainer provides a professional-grade C++ development environment spec
 #### 3. **Lab Structure** (`labs/`)
 ```
 labs/
-├── lab515/          # Completed lab (file reading)
-├── lab517/          # Current working lab
-├── lab519/          # Template for future lab
-├── lab520/          # Template for future lab
-├── lab522/          # Template for future lab
-├── lab525/          # Template for future lab
-├── lab526/          # Template for future lab
-└── lab527/          # Template for future lab
+├── lab5/                    # Lab 5 series (500-level labs)
+│   ├── lab515/             # Completed lab (file reading)
+│   ├── lab517/             # Current working lab
+│   ├── lab519/             # Template for future lab
+│   ├── lab520/             # Template for future lab
+│   ├── lab522/             # Template for future lab
+│   ├── lab525/             # Template for future lab
+│   ├── lab526/             # Template for future lab
+│   └── lab527/             # Template for future lab
+├── lab6/                    # Lab 6 series (600-level labs)
+│   ├── lab625/             # Advanced lab template
+│   ├── lab627/             # Advanced lab template
+│   └── lab630/             # Advanced lab template
+└── lab7/                    # Lab 7 series (700-level labs)
+    └── lab735/             # Demo lab (shows template system)
 ```
 
 #### 4. **VS Code Integration** (`.vscode/`)
@@ -93,6 +100,22 @@ labs/
 - `fast_io.hpp` - Fast I/O utilities for labs
 
 ## 🧪 Lab Structure
+
+### Nested Organization System
+
+The labs are organized in a nested directory structure for better organization and scalability:
+
+- **`lab5/`** - Contains all 5 chapter labs
+- **`lab6/`** - Contains all 6 chapter labs
+- **`lab7/`** - Contains all 7 chapter labs
+
+This structure allows you to:
+- **Organize labs by major version numbers**
+- **Create new lab series easily** (lab8, lab9, etc.)
+- **Use any existing lab as a template** for new labs
+- **Maintain compatibility** with VS Code tasks and build system
+
+### Individual Lab Structure
 
 Each lab contains:
 ```
@@ -166,7 +189,25 @@ code main.cpp
 # Set up input.txt and expected.txt
 ```
 
-### 2. **Development Cycle**
+### 2. **Creating a New Lab Series**
+```bash
+# Create new lab series directory
+mkdir -p labs/lab8
+
+# Copy template lab (e.g., lab520)
+cp -r labs/lab5/lab520 labs/lab8/lab845
+
+# Update the Makefile
+cd labs/lab8/lab845
+# Change LAB := lab845 and ensure include path is correct
+
+# Test the new lab
+make test LAB=lab845
+```
+
+**Note**: The build system automatically detects labs in nested directories, so you can organize them however you want!
+
+### 3. **Development Cycle**
 ```bash
 # Build and test
 make test LAB=lab517
@@ -175,7 +216,7 @@ make test LAB=lab517
 # If test passes, commit your work
 ```
 
-### 3. **Completing a Lab**
+### 4. **Completing a Lab**
 ```bash
 # Add all changes
 git add .

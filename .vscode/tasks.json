@@ -32,7 +32,7 @@
             "type": "shell",
             "command": "make",
             "args": [
-                "run",
+                "${input:runMode}",
                 "LAB=${input:lab}"
             ],
             "group": "test",
@@ -116,6 +116,7 @@
                 "zsh: terminal",
                 "btop: monitor"
             ],
+            "group": "other",
             "problemMatcher": []
         },
         {
@@ -156,22 +157,43 @@
                 "group": "side-by-side"
             }
         },
+
         {
-            "label": "Launch Zsh then Btop Sequentially",
-            "dependsOrder": "sequence",
-            "dependsOn": [
-                "Launch Zsh Terminal",
-                "Launch Btop System Monitor"
+            "label": "Create New Lab",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "echo 'Enter lab number (e.g., 601): ' && read labnum && labname=\"lab$labnum\" && if [ -d \"labs/$labname\" ]; then echo \"Lab $labname already exists!\"; else mkdir -p labs/$labname && echo \"Creating lab $labname...\" && cp labs/lab517/main.cpp labs/$labname/main.cpp && cp labs/lab517/Makefile labs/$labname/Makefile && echo \"# $labname Expected Output\" > labs/$labname/expected.txt && echo \"# $labname Input Data\" > labs/$labname/input.txt && echo \"Lab $labname created successfully!\" && echo \"Files created:\" && ls -la labs/$labname/; fi"
             ],
-            "group": "other"
+            "group": "other",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
         }
     ],
     "inputs": [
         {
             "id": "lab",
-            "description": "Lab name (e.g., lab515, lab517)",
-            "default": "lab515",
+            "description": "Lab name (e.g., lab515, lab517, lab625, lab627, lab630)",
+            "default": "lab625",
             "type": "promptString"
+        },
+        {
+            "id": "runMode",
+            "description": "Choose run mode",
+            "type": "pickString",
+            "options": [
+                "run",
+                "manual"
+            ],
+            "default": "run"
         }
     ]
 }

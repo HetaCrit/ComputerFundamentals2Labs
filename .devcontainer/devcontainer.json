@@ -63,7 +63,7 @@
       }
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y clang-format gdb",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y clang-format gdb btop",
   "remoteUser": "vscode",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace"

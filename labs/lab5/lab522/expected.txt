@@ -1,0 +1,7 @@
+Enter integer:
+You entered: 0
+0 squared is 0
+And 0 cubed is 0!!
+Enter another integer:
+0 + 32766 is 32766
+0 * 32766 is 0
